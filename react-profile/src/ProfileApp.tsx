@@ -25,8 +25,10 @@ export default function mount(el: HTMLElement) {
 
     useEffect(() => {
       if (activeTab === "skills") {
-        setAnimatedSkills(false);
-        setTimeout(() => setAnimatedSkills(true), 100);
+        setTimeout(() => {
+          setAnimatedSkills(false);
+          setTimeout(() => setAnimatedSkills(true), 100);
+        }, 0);
       }
     }, [activeTab]);
 

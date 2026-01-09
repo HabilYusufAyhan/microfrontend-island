@@ -6,18 +6,15 @@
   "type": "module",
   "packageManager": "npm@10.0.0",
   "scripts": {
-    "dev": "turbo run build --filter=react-profile --filter=vue-todo && npm-run-all --parallel dev:watch dev:preview dev:shell",
-    "dev:watch": "turbo run build:watch --filter=react-profile --filter=vue-todo",
-    "dev:preview": "turbo run preview --filter=react-profile --filter=vue-todo",
-    "dev:shell": "turbo run dev --filter=shell",
-    "dev:all": "turbo run dev",
+    "dev": "turbo run dev",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "preview": "turbo run preview"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
-    "turbo": "^2.7.3"
+    "turbo": "^2.7.3",
+    "vite": "^7.2.4"
   },
   "workspaces": [
     "shell",

@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import federation from "@originjs/vite-plugin-federation";
+import { federation } from "@module-federation/vite";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
@@ -13,7 +13,9 @@ export default defineConfig({
       exposes: {
         "./TodoApp": "./src/TodoApp.ts",
       },
-      shared: ["vue"],
+      shared: {
+        vue: { singleton: true },
+      },
     }),
   ],
   resolve: {
