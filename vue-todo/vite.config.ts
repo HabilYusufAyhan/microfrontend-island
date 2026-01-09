@@ -23,11 +23,15 @@ export default defineConfig({
   },
   server: {
     port: 3001,
+    cors: true,
+    origin: "http://localhost:3001",
   },
   preview: {
     port: 3001,
+    cors: true,
   },
   build: {
     target: "esnext",
+    minify: false,
   },
 });

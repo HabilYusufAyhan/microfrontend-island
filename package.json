@@ -1,0 +1,26 @@
+{
+  "name": "microfrontend-island",
+  "version": "1.0.0",
+  "description": "Microfrontend monorepo using Module Federation with Turborepo",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@10.0.0",
+  "scripts": {
+    "dev": "turbo run build --filter=react-profile --filter=vue-todo && npm-run-all --parallel dev:remotes dev:shell",
+    "dev:remotes": "turbo run preview --filter=react-profile --filter=vue-todo",
+    "dev:shell": "turbo run dev --filter=shell",
+    "dev:all": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "preview": "turbo run preview"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "turbo": "^2.7.3"
+  },
+  "workspaces": [
+    "shell",
+    "react-profile",
+    "vue-todo"
+  ]
+}

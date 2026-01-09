@@ -6,12 +6,16 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   server: {
     port: 3002,
+    cors: true,
+    origin: "http://localhost:3002",
   },
   preview: {
     port: 3002,
+    cors: true,
   },
   build: {
     target: "esnext",
+    minify: false,
   },
   plugins: [
     react(),

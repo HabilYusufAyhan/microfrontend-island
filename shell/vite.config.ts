@@ -17,8 +17,9 @@ export default defineConfig({
   ],
   server: {
     port: 3000,
-    allowedHosts: [
-      "https://thousand-wallet-screensaver-motor.trycloudflare.com",
-    ],
+    cors: true,
+  },
+  build: {
+    target: "esnext",
   },
 });
