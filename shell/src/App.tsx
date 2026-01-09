@@ -1,21 +1,8 @@
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Palmtree, Sparkles, Zap } from "lucide-react";
 
 function App() {
-  const vueRef = useRef(null);
-  const reactRef = useRef(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    if (vueRef.current) {
-      import("vueTodo/TodoApp").then((m) => m.default(vueRef.current));
-    }
-    if (reactRef.current) {
-      import("reactProfile/ProfileApp").then((m) =>
-        m.default(reactRef.current)
-      );
-    }
-  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -117,27 +104,31 @@ function App() {
 
         {/* Islands Grid */}
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Vue Island */}
+          {/* Vue Island - iFrame Container */}
           <div className="group grid">
             {/* Animated border - same grid cell */}
             <div className="col-start-1 row-start-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-border-spin bg-[length:400%_400%] scale-[1.005]" />
             {/* Glow effect - same grid cell */}
             <div className="col-start-1 row-start-1 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-2xl blur-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 scale-105" />
-            <div
-              ref={vueRef}
-              className="col-start-1 row-start-1 relative bg-[#0d0d12] backdrop-blur-xl rounded-2xl border border-white/[0.08] overflow-hidden transition-all duration-500 group-hover:translate-y-[-4px] group-hover:shadow-2xl group-hover:shadow-emerald-500/20"
+            <iframe
+              title="Vue Todo App"
+              src="http://localhost:3001/iframe.html"
+              className="col-start-1 row-start-1 relative bg-[#0d0d12] backdrop-blur-xl rounded-2xl border border-white/[0.08] overflow-hidden transition-all duration-500 group-hover:translate-y-[-4px] group-hover:shadow-2xl group-hover:shadow-emerald-500/20 w-full h-full"
+              style={{ minHeight: "400px", border: "none" }}
             />
           </div>
 
-          {/* React Island */}
+          {/* React Island - iFrame Container */}
           <div className="group grid">
             {/* Animated border - same grid cell */}
             <div className="col-start-1 row-start-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-border-spin bg-[length:400%_400%] scale-[1.005]" />
             {/* Glow effect - same grid cell */}
             <div className="col-start-1 row-start-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-2xl blur-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 scale-105" />
-            <div
-              ref={reactRef}
-              className="col-start-1 row-start-1 relative bg-[#0d0d12] backdrop-blur-xl rounded-2xl border border-white/[0.08] overflow-hidden transition-all duration-500 group-hover:translate-y-[-4px] group-hover:shadow-2xl group-hover:shadow-cyan-500/20"
+            <iframe
+              title="React Profile App"
+              src="http://localhost:3002/iframe.html"
+              className="col-start-1 row-start-1 relative bg-[#0d0d12] backdrop-blur-xl rounded-2xl border border-white/[0.08] overflow-hidden transition-all duration-500 group-hover:translate-y-[-4px] group-hover:shadow-2xl group-hover:shadow-cyan-500/20 w-full h-full"
+              style={{ minHeight: "400px", border: "none" }}
             />
           </div>
         </div>
@@ -164,7 +155,7 @@ function App() {
             </div>
           </div>
           <p className="mt-4 text-xs text-zinc-700">
-            Built with ❤️ using Module Federation
+            Built with ❤️ using Island Architecture (iframes)
           </p>
         </footer>
       </div>

@@ -6,11 +6,10 @@
   "type": "module",
   "packageManager": "npm@10.0.0",
   "scripts": {
-    "dev": "turbo run build --filter=react-profile --filter=vue-todo && npm-run-all --parallel dev:watch dev:preview dev:shell",
-    "dev:watch": "turbo run build:watch --filter=react-profile --filter=vue-todo",
-    "dev:preview": "turbo run preview --filter=react-profile --filter=vue-todo",
+    "dev": "npm-run-all --parallel dev:*",
     "dev:shell": "turbo run dev --filter=shell",
-    "dev:all": "turbo run dev",
+    "dev:vue": "turbo run dev --filter=vue-todo",
+    "dev:react": "turbo run dev --filter=react-profile",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "preview": "turbo run preview"

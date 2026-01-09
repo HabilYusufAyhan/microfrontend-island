@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import federation from "@originjs/vite-plugin-federation";
 import tailwindcss from "@tailwindcss/vite";
+import { resolve } from "path";
 
 export default defineConfig({
   plugins: [
@@ -33,5 +34,11 @@ export default defineConfig({
   build: {
     target: "esnext",
     minify: false,
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, "index.html"),
+        iframe: resolve(__dirname, "iframe.html"),
+      },
+    },
   },
 });

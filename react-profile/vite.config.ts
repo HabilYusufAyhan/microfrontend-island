@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import federation from "@originjs/vite-plugin-federation";
 import tailwindcss from "@tailwindcss/vite";
+import { resolve } from "path";
 
 export default defineConfig({
   server: {
@@ -16,6 +17,12 @@ export default defineConfig({
   build: {
     target: "esnext",
     minify: false,
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, "index.html"),
+        iframe: resolve(__dirname, "iframe.html"),
+      },
+    },
   },
   plugins: [
     react(),
