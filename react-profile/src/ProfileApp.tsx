@@ -62,7 +62,7 @@ export default function mount(el: HTMLElement) {
                 Developer Profile
               </h3>
               <p className="m-0 text-xs text-zinc-500">
-                Profil bilgilerinizi görüntüleyin
+                Profil bilgilerinizi görüntüleyin.
               </p>
             </div>
             <span className="px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gradient-to-r from-cyan-500 to-cyan-600 text-white shadow-lg shadow-cyan-500/30">

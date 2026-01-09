@@ -10,6 +10,7 @@
     "dev": "vite"
   },
   "dependencies": {
+    "@module-federation/vite": "^1.9.4",
     "@originjs/vite-plugin-federation": "^1.4.1",
     "lucide-react": "^0.562.0",
     "react": "^19.2.0",

@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
+    "build:watch": "vite build --watch",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@module-federation/vite": "^1.9.4",
     "@originjs/vite-plugin-federation": "^1.4.1",
     "lucide-react": "^0.562.0",
     "lucide-vue-next": "^0.562.0",

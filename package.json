@@ -6,8 +6,9 @@
   "type": "module",
   "packageManager": "npm@10.0.0",
   "scripts": {
-    "dev": "turbo run build --filter=react-profile --filter=vue-todo && npm-run-all --parallel dev:remotes dev:shell",
-    "dev:remotes": "turbo run preview --filter=react-profile --filter=vue-todo",
+    "dev": "turbo run build --filter=react-profile --filter=vue-todo && npm-run-all --parallel dev:watch dev:preview dev:shell",
+    "dev:watch": "turbo run build:watch --filter=react-profile --filter=vue-todo",
+    "dev:preview": "turbo run preview --filter=react-profile --filter=vue-todo",
     "dev:shell": "turbo run dev --filter=shell",
     "dev:all": "turbo run dev",
     "build": "turbo run build",
